@@ -1,0 +1,7 @@
+RewriteEngine on
+RewriteRule ^/?item/([0-9]+)$ /item.php?id=$1
+
+ErrorDocument 404 /404error.php
+
+RedirectMatch 403 /helpers
+RedirectMatch 403 /php

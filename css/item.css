@@ -1,0 +1,97 @@
+html,body{		
+	height: 100%; 
+	margin:0;
+	padding:0;
+	overflow:auto;
+}
+
+h3 {
+	font-weight: normal;
+	margin-bottom: 0;
+}
+
+#info_wrapper{
+	background-color: rgba(230,230,230,.9);
+	min-width: 750px;
+	height: 100%;
+}
+
+#basicinfo_container{
+	display: table;
+	border-spacing: 4px 0;
+    padding-left: 50px;	
+	padding-top: 30px;
+}
+
+#image_cell{
+	display: table-cell;
+}
+
+#tooltip_info{
+	background-image: url(/images/tooltip_back.png);
+	display: table-cell;	
+	width: 330px;
+	vertical-align: top;
+	padding-right: 10px;
+}
+
+.tt_dl{
+	padding-left: 10px;
+	line-height:16px;
+}
+
+.tt_title{
+	font-weight: bold;	
+	padding-bottom: 5px;
+}
+
+.tt_description, .tt_identifier{
+	color: white;
+}
+
+.tt_attrs{
+	color: #3ebf43;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.tt_infusions{
+	color: white;
+	font-size: 14px;
+}
+
+.item_img{
+	height: 64px;
+}
+
+dd { 
+	margin-left: 10px; 
+}
+
+#sales_info{
+	display: table-cell;
+	margin-left: 10px;
+	vertical-align: middle;
+}
+
+table{
+	border-spacing: 20px 10px;
+}
+
+.coin-img{
+	position: relative;
+	top: 4px;
+}
+
+.label {
+     z-index: 1 !important;
+ }
+
+.highcharts-tooltip span {
+    background-color: rgba(255,255,255,1);
+	padding: 5px;
+	border:1px solid black;
+    opacity:1;
+    z-index:9999 !important;
+}
+
