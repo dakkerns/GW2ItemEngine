@@ -1,6 +1,6 @@
 <?php
 
-require '../php/connect.php';
+require '../includes/connect.php';
 
 $sql = "SELECT id, url FROM item_info";
 $result = mysqli_query($con, $sql) or die(mysqli_error($con));

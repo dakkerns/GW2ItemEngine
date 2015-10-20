@@ -8,7 +8,7 @@ if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']))
 
 header("Content-type: text/javascript");
 
-include('../php/connect.php');
+include('../includes/connect.php');
 
 $sql = "SELECT max_offer, min_sell, demand, supply, DATE_FORMAT(dateadded, '%b %d %Y %h:%i %p') AS date FROM highcharts WHERE id = '$_GET[id];'";
 $result = mysqli_query($con, $sql) or die(mysqli_error($con));

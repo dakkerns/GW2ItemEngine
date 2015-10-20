@@ -8,7 +8,7 @@ if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']))
 
 header("Content-type: text/javascript");
 
-include('../php/connect.php');
+include('../includes/connect.php');
 
 $items = array();
 	
