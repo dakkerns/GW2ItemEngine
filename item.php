@@ -5,7 +5,7 @@
 <link rel="stylesheet" type ="text/css" href="/css/item.css">
 </head>
 <body>
-<?php include('/php/itemData.php'); ?>
+<?php include('/includes/itemData.php'); ?>
 <div id = "info_wrapper">
 	<div id = "basicinfo_container">				
 		<div id = "image_cell">
