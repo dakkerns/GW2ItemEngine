@@ -18,6 +18,7 @@
 		<img id = "input-img" src = "/images/searchicon.png">
 	</div>
 	<div id = "result-div">
+		<img id = "load_img" src = "/images/ajax-loader.gif">
 		<table id = "result-table">		
 			<tbody>
 				<tr id = "table-header">

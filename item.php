@@ -1,3 +1,8 @@
+<?php 
+ob_start();
+include_once $_SERVER['DOCUMENT_ROOT']."/includes/itemData.php"; 
+ob_end_flush();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +10,6 @@
 <link rel="stylesheet" type ="text/css" href="/css/item.css">
 </head>
 <body>
-<?php include('/includes/itemData.php'); ?>
 <div id = "info_wrapper">
 	<div id = "basicinfo_container">				
 		<div id = "image_cell">

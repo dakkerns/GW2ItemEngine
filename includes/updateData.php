@@ -1,6 +1,6 @@
 <?php
 
-include('/connect.php');
+include_once "connect.php";
 
 $sql = "TRUNCATE TABLE current_market";
 mysqli_query($con,$sql) or die(mysqli_error($con));
@@ -14,10 +14,10 @@ $valuesArr = array();
 
 foreach($items as $row){
 
-	$max = mysql_real_escape_string($row['max_offer_unit_price']);
-	$min = mysql_real_escape_string($row['min_sale_unit_price']);
-	$demand = mysql_real_escape_string($row['offer_availability']);
-	$supply = mysql_real_escape_string($row['sale_availability']);
+	$max = mysqli_real_escape_string($con,$row['max_offer_unit_price']);
+	$min = mysqli_real_escape_string($con,$row['min_sale_unit_price']);
+	$demand = mysqli_real_escape_string($con,$row['offer_availability']);
+	$supply = mysqli_real_escape_string($con,$row['sale_availability']);
 
 	if((int)$max == 0){
 		$max = "";
@@ -34,7 +34,7 @@ foreach($items as $row){
 	}
 
 	$id = $row['data_id'];
-	$name = mysql_real_escape_string($row['name']);
+	$name = mysqli_real_escape_string($con,$row['name']);
 			
 	$valuesArr[] = "('$id','$name','$max','$min','$demand','$supply')";
 
@@ -51,10 +51,10 @@ $valuesArr = array();
 
 foreach($items as $row){
 	
-	$max = mysql_real_escape_string($row['max_offer_unit_price']);
-	$min = mysql_real_escape_string($row['min_sale_unit_price']);
-	$demand = mysql_real_escape_string($row['offer_availability']);
-	$supply = mysql_real_escape_string($row['sale_availability']);
+	$max = mysqli_real_escape_string($con,$row['max_offer_unit_price']);
+	$min = mysqli_real_escape_string($con,$row['min_sale_unit_price']);
+	$demand = mysqli_real_escape_string($con,$row['offer_availability']);
+	$supply = mysqli_real_escape_string($con,$row['sale_availability']);
 	
 	if((int)$max == 0 && (int)$min == 0 && (int)$demand == 0 && (int)$supply == 0){
 		continue;
@@ -76,7 +76,7 @@ foreach($items as $row){
 
 	$id = $row['data_id'];
 			
-	$valuesArr[] = "('$id','$max','$min','$demand','$supply',NOW())";
+	$valuesArr[] = "('$id','$max','$min','$demand','$supply',CONVERT_TZ(NOW(),'+00:00','+01:00')";
 
 }
 

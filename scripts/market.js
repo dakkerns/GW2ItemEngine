@@ -39,6 +39,9 @@ $(document).ready(function(){
 			}
 		});
 		$('#typeahead').removeAttr('disabled');
+		$('#typeahead').focus();
+		$('#result-table').show();
+		$('#load_img').hide();
 		engine.initialize();	
 		
 		cookie = items.filter(function(item){
@@ -68,6 +71,7 @@ $(document).ready(function(){
 		if($(this).attr('src') == "/images/xicon.png"){
 			$('#typeahead').val('');
 			updateList(highlights);
+			$('#typeahead').focus();
 			$(this).attr("src","/images/searchicon.png");
 		}
 	});
@@ -77,7 +81,7 @@ $(document).ready(function(){
 			href		: $(this).attr('data-href'),			
 			type: 'iframe',
 			fitToView	: true,
-			topRatio	: '.52',
+			topRatio	: '.40',
 			width		: '800px',
 			height		: '600px',
 			autoSize	: false,
