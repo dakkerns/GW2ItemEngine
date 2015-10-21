@@ -3,5 +3,5 @@ RewriteRule ^/?item/([0-9]+)$ /item.php?id=$1
 
 ErrorDocument 404 /404error.php
 
-RedirectMatch 403 /helpers
-RedirectMatch 403 /php
+RedirectMatch 404 /helpers
+RedirectMatch 404 /includes
