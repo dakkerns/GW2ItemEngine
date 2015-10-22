@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title> GW2 Item Engine </title>
+<title>GW2ItemEngine - Guild Wars 2 Quick Item Search</title>
+<meta name="description" content="Guild Wars 2 Quick Search and Graphs"/>
+<meta name="keywords" content="Guild Wars 2, Graphs, Charts, Search Engine"/>
+<meta name="author" content="David Kerns"/>
 <meta name="viewport" content="width=device-width, initial-scale=.86">
 <link rel="icon" href="/images/favicon.ico">
 <link rel="stylesheet" type ="text/css" href="/css/market.css">
@@ -10,15 +13,15 @@
 <body>
 <div id = "logo-container">
 	<h1 class = "title">GW2 Item Engine</h1>
-	<h2 class = "title">Real time market search</h3>
+	<h2 class = "title">Quick Market Search</h3>
 </div>
 <div id="bloodhound">
 	<div id = "input-container">
 		<input id="typeahead" type="text" placeholder="Item Search" disabled = "disabled" autofocus>	
-		<img id = "input-img" src = "/images/searchicon.png">
+		<img class = "input-img" src = "/images/searchicon.png">
 	</div>
 	<div id = "result-div">
-		<img id = "load_img" src = "/images/ajax-loader.gif">
+		<img class = "load_img" src = "/images/ajax-loader.gif">
 		<table id = "result-table">		
 			<tbody>
 				<tr id = "table-header">
@@ -32,7 +35,7 @@
 	</div>
 </div>
 <div id = "copyright_container">
-	<h1 class = "title">Created by David Kerns</h1>
+	<h1 class = "title"><a href="http://github.com/dakkerns/gw2itemengine">Open Source Project by David Kerns</a></h1>
 </div>
 <script src="/scripts/jquery-2.1.4.js"></script>
 <script src="/scripts/jquery.cookie.js"></script>

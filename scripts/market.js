@@ -41,7 +41,7 @@ $(document).ready(function(){
 		$('#typeahead').removeAttr('disabled');
 		$('#typeahead').focus();
 		$('#result-table').show();
-		$('#load_img').hide();
+		$('.load_img').hide();
 		engine.initialize();	
 		
 		cookie = items.filter(function(item){
@@ -63,11 +63,11 @@ $(document).ready(function(){
 			if(i >= 10){
 				return false;
 			}		
-			$('#result-table > tbody:last-child').append("<tr id = row-link data-href=/item/" + item['id'] + "><td width = 10%><img class = item-img width = 38px src=/images/items/" + Math.floor(item['id']/1000) + "/" + item['id'] + ".jpg></td><td width = 40%>" + item['name'] + "</td><td width = 25%>" + coinsMaxOffer + "</td><td width = 25%>" + coinsMinSell + "</td></tr>");
+			$('#result-table > tbody:last-child').append("<tr class = row-link data-href=/item/" + item['id'] + "><td width = 10%><img class = item-img width = 38px src=/images/items/" + Math.floor(item['id']/1000) + "/" + item['id'] + ".jpg></td><td width = 40%>" + item['name'] + "</td><td width = 25%>" + coinsMaxOffer + "</td><td width = 25%>" + coinsMinSell + "</td></tr>");
 		});
 	}
 	
-	$('#input-img').on('click', function(){
+	$('.input-img').on('click', function(){
 		if($(this).attr('src') == "/images/xicon.png"){
 			$('#typeahead').val('');
 			updateList(highlights);
@@ -76,7 +76,7 @@ $(document).ready(function(){
 		}
 	});
 	
-	$('body').on('click', '#row-link', function(event){	
+	$('body').on('click', '.row-link', function(event){	
 		$.fancybox({
 			href		: $(this).attr('data-href'),			
 			type: 'iframe',
@@ -93,10 +93,10 @@ $(document).ready(function(){
 	$('#typeahead').on('input', function(){		
 		if($(this).val() === ''){			
 			updateList(highlights);
-			$('#input-img').attr("src","/images/searchicon.png");
+			$('.input-img').attr("src","/images/searchicon.png");
 		}else{
 			engine.search($(this).val(),updateList);
-			$('#input-img').attr("src","/images/xicon.png");
+			$('.input-img').attr("src","/images/xicon.png");
 		}				
 	});	  
 });

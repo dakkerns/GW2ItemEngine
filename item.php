@@ -12,7 +12,7 @@ ob_end_flush();
 <body>
 <div id = "info_wrapper">
 	<div id = "basicinfo_container">				
-		<div id = "image_cell">
+		<div class = "image_cell">
 			<img class = "item_img" src = <?php echo $item->imageUrl ?>>
 		</div>			
 		<div id = "tooltip_info">

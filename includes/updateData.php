@@ -76,7 +76,7 @@ foreach($items as $row){
 
 	$id = $row['data_id'];
 			
-	$valuesArr[] = "('$id','$max','$min','$demand','$supply',CONVERT_TZ(NOW(),'+00:00','+01:00')";
+	$valuesArr[] = "('$id','$max','$min','$demand','$supply',NOW())";
 
 }
 

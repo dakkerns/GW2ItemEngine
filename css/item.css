@@ -23,7 +23,7 @@ h3 {
 	padding-top: 30px;
 }
 
-#image_cell{
+.image_cell{
 	display: table-cell;
 }
 
