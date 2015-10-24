@@ -16,6 +16,21 @@ function coinImages(itemPrice){
 	}
 	return Math.floor(itemPrice / 10000) % 10000 + " <img class = coin-img src = /images/gold.png> " + Math.floor(itemPrice / 100) % 100 + " <img class = coin-img src = /images/silver.png> " + itemPrice % 100 + "  <img class = coin-img src = /images/copper.png>";
 }
+
+function comparer(index, asc) {
+    return function(a, b) {
+        var valA = getCellValue(a, index), valB = getCellValue(b, index);
+		if(index > 1 && !$.isNumeric(valA) && asc){
+			valA = Number.MIN_VALUE;
+		}
+		if(index > 1 && !$.isNumeric(valB) && asc){
+			valB = Number.MIN_VALUE;
+		}		
+	 	return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.localeCompare(valB)
+	}
+}
+	
+function getCellValue(row,index){return $(row).children('td').eq(index).attr('data-val')}
 	
 $(document).ready(function(){
 	
@@ -40,6 +55,7 @@ $(document).ready(function(){
 		});
 		$('#typeahead').removeAttr('disabled');
 		$('#typeahead').focus();
+		$('#header-table').show();
 		$('#result-table').show();
 		$('.load_img').hide();
 		engine.initialize();	
@@ -56,16 +72,25 @@ $(document).ready(function(){
 	}
 	  
 	function updateList(itemList){	
-		$('#result-table tbody').find("tr:gt(0)").remove();
+		$('#result-table tbody').empty();
 		$.each(itemList, function(i, item){	
 			var coinsMaxOffer = coinImages(item['max_offer']);
 			var coinsMinSell = coinImages(item['min_sell']);
-			if(i >= 10){
+			var datamax = item['max_offer'];
+			var datamin = item['min_sell'];
+			if(i >= 30){
 				return false;
 			}		
-			$('#result-table > tbody:last-child').append("<tr class = row-link data-href=/item/" + item['id'] + "><td width = 10%><img class = item-img width = 38px src=/images/items/" + Math.floor(item['id']/1000) + "/" + item['id'] + ".jpg></td><td width = 40%>" + item['name'] + "</td><td width = 25%>" + coinsMaxOffer + "</td><td width = 25%>" + coinsMinSell + "</td></tr>");
+			$('#result-table > tbody:last-child').append("<tr class = row-link data-href=/item/" + item['id'] + "><td width = 10%><img class = item-img width = 38px src=/images/items/" + Math.floor(item['id']/1000) + "/" + Math.floor(item['id']/100) + "/" + item['id'] + ".jpg></td><td data-val= '" + item['name'] + "' width = 40%>" + item['name'] + "</td><td data-val= " + datamax + " width = 25%>" + coinsMaxOffer + "</td><td data-val= " + datamin + " width = 25%>" + coinsMinSell + "</td></tr>");
 		});
 	}
+	
+	$('.header').click(function(){
+		this.asc = !this.asc;
+	    var rows = $('#result-table').find('tr').toArray().sort(comparer($(this).index(),this.asc));	    
+	    if (this.asc){rows = rows.reverse();}
+	    for (var i = 0; i < rows.length; i++){$('#result-table').append(rows[i])}
+	});
 	
 	$('.input-img').on('click', function(){
 		if($(this).attr('src') == "/images/xicon.png"){

@@ -20,18 +20,22 @@
 		<input id="typeahead" type="text" placeholder="Item Search" disabled = "disabled" autofocus>	
 		<img class = "input-img" src = "/images/searchicon.png">
 	</div>
-	<div id = "result-div">
+	<div id = "result-wrap">
 		<img class = "load_img" src = "/images/ajax-loader.gif">
-		<table id = "result-table">		
-			<tbody>
-				<tr id = "table-header">
-					<td style = "width: 10%;"><img class = "item-img" style = "width:38px;" src = "/images/cameraicon.png"></td>
-					<td style = "width: 40%;">Name</td>
-					<td style = "width: 25%;">Highest Offer</td>
-					<td style = "width: 25%;">Lowest Seller</td>
-				</tr>
-			</tbody>
+		<table id = "header-table">
+			<tr id = "headers">
+				<td style = "width: 10%;"><img class = "item-img" style = "width:38px;" src = "/images/cameraicon.png"></td>
+				<td class = "header" style = "width: 40%;">Name</td>
+				<td class = "header" style = "width: 25%;">Highest Offer</td>
+				<td class = "header" style = "width: 25%;">Lowest Seller</td>
+			</tr>
 		</table>
+		<div id = "result-div">
+			<table id = "result-table">		
+				<tbody>				
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
 <div id = "copyright_container">

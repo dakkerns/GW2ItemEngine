@@ -109,7 +109,7 @@ class toolTip {
 		$sql = "SELECT * FROM item_info AS info WHERE info.id = '$suffix'";
 		$result = mysqli_query($this->connection, $sql) or die(mysqli_error($item->connection));	
 		$row = mysqli_fetch_assoc($result);
-		$tt .= "<dd style = 'padding-top: 5px; color:" . $this->colors[$row['rarity']] . ";'><img width = 16px src =/images/items/" . floor($suffix/1000) . "/" . $suffix . ".jpg> " . $row['name'] . "</dd>"; 
+		$tt .= "<dd style = 'padding-top: 5px; color:" . $this->colors[$row['rarity']] . ";'><img width = 16px src =/images/items/" . floor($suffix/1000) . "/" . floor($suffix/100) . "/" . $suffix . ".jpg> " . $row['name'] . "</dd>"; 
 		
 		$attrs = array();
 		$sql = "SELECT * FROM item_attributes WHERE item_attributes.id = '$suffix'";

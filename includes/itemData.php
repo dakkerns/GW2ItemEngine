@@ -30,13 +30,13 @@ $items = array();
 if(isset($_COOKIE["frequented"])){
 	$items = json_decode($_COOKIE['frequented']);	
 }
-if(in_array($item->itemData['id'], $items)){
-	$key = array_search($item->itemData['id'],$items);
+if(in_array($id, $items)){
+	$key = array_search($id,$items);
 	unset($items[$key]);
 	$items = array_values($items);	
 }
-array_unshift($items,$item->itemData['id']);
-if(count($items) == 11){
+array_unshift($items,$id);
+if(count($items) == 31){
 	array_pop($items);
 }
 setcookie("frequented", json_encode($items), time() + (86400 * 14), "/");
@@ -65,7 +65,7 @@ class Item {
 		$this->itemInfusions = $this->getItemInfusions();
 		$this->max = coinImages($this->marketData['max_offer']);
 		$this->min = coinImages($this->marketData['min_sell']);
-		$this->imageUrl = '/images/items/' . floor($this->itemId/1000) . '/' . $this->itemId . '.jpg';
+		$this->imageUrl = '/images/items/' . floor($this->itemId/1000) . '/' . floor($this->itemId/100) . '/' . $this->itemId . '.jpg';
 		$this->tooltip = new toolTip($this->itemData, $this->itemAttrs, $this->itemInfusions, $this->connection);
 	}
 	
