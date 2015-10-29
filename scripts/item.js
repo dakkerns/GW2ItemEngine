@@ -97,7 +97,10 @@ $(document).ready(function(){
                 marker: {
                     enabled: false
                 }
-            }
+            },
+			column: {
+				grouping: false
+			}
         },
 		series: []
 	};
